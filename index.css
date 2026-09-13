@@ -1,0 +1,609 @@
+css
+/* ========================================
+   GENERAL / BODY
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #121010;
+    color: #F5F0E6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navbar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    background: #121010;
+
+    border-top: 1px solid rgba(205, 200, 207, 0.35);
+    border-bottom: 1px solid rgba(205, 200, 207, 0.35);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+
+    z-index: 20;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo-container {
+    width: 150px;
+    height: 100px;
+
+    margin-left: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   NAVIGATION LINKS
+======================================== */
+
+.navbar nav {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar nav a {
+    position: relative;
+
+    height: 100%;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+
+    color: #cdc8cf;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+
+/* ========================================
+   NAVIGATION HOVER
+======================================== */
+
+.navbar nav a:hover {
+    color: #F5F0E6;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* ========================================
+   NAVIGATION UNDERLINE
+======================================== */
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+
+    background: #F5F0E6;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 65%;
+}
+
+
+/* ========================================
+   ACTIVE PAGE
+======================================== */
+
+.navbar nav a.active {
+    color: #F5F0E6;
+}
+
+
+/* ========================================
+   REGISTER SEPARATOR
+======================================== */
+
+.navbar nav a[href="register.html"] {
+    border-left: 1px solid rgba(205, 200, 207, 0.55);
+}
+
+
+/* ========================================
+   HOME / MAIN
+======================================== */
+
+.main {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #121010;
+}
+
+
+/* ========================================
+   HOME BACKGROUND
+======================================== */
+
+.main-bg {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    transform: scale(1.02);
+
+    transition: transform 8s ease;
+}
+
+.main:hover .main-bg {
+    transform: scale(1.06);
+}
+
+
+/* ========================================
+   HOME OVERLAY
+======================================== */
+
+.main-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(18, 16, 16, 0.30),
+            rgba(18, 16, 16, 0.50),
+            rgba(18, 16, 16, 0.90)
+        );
+}
+
+
+/* ========================================
+   HOME CONTENT
+======================================== */
+
+.main-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+    max-width: 950px;
+
+    margin-top: 100px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   SMALL LABEL
+======================================== */
+
+.main-text {
+    margin-bottom: 22px;
+
+    color: #cdc8cf;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    text-shadow: 0 3px 8px #000;
+}
+
+
+/* ========================================
+   DECORATIVE LINES
+======================================== */
+
+.main-text::before,
+.main-text::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 50px;
+    height: 1px;
+
+    margin: 0 18px;
+
+    vertical-align: middle;
+
+    background: #cdc8cf;
+
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   MAIN TITLE
+======================================== */
+
+.main-content h1 {
+    margin-bottom: 25px;
+
+    color: #F5F0E6;
+
+    font-size: clamp(55px, 8vw, 105px);
+
+    font-weight: normal;
+
+    line-height: 0.95;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        3px 3px 0 #121010,
+        5px 5px 15px #000;
+}
+
+
+/* ========================================
+   MAIN DESCRIPTION
+======================================== */
+
+.main-content p:last-of-type {
+    width: 100%;
+    max-width: 680px;
+
+    margin: 0 auto 35px;
+
+    color: #cdc8cf;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    text-shadow: 0 3px 8px #000;
+}
+
+
+/* ========================================
+   EXPLORE BUTTON
+======================================== */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 280px;
+
+    padding: 18px 45px;
+
+    color: #121010;
+
+    background: #F5F0E6;
+
+    border: 1px solid #F5F0E6;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+
+    background: #cdc8cf;
+
+    border-color: #cdc8cf;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    position: relative;
+
+    width: 100%;
+
+    padding: 45px 20px 35px;
+
+    text-align: center;
+
+    background: #121010;
+
+    border-top: 1px solid rgba(205, 200, 207, 0.35);
+
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+
+    color: #F5F0E6;
+
+    font-size: 28px;
+
+    letter-spacing: 8px;
+
+    text-shadow: 0 2px 8px #000;
+
+    transition: 0.3s;
+}
+
+.footer:hover .footer-logo {
+    color: #cdc8cf;
+
+    transform: scale(1.05);
+}
+
+.footer p {
+    margin-bottom: 10px;
+
+    color: #cdc8cf;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-shadow: 0 2px 5px #000;
+}
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        width: 100%;
+    }
+
+    .logo-container {
+        width: 130px;
+        height: 90px;
+
+        margin-left: 15px;
+    }
+
+    .navbar nav a {
+        padding: 0 18px;
+
+        font-size: 13px;
+    }
+
+    .main-content h1 {
+        font-size: 65px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        position: absolute;
+
+        top: 0;
+
+        height: auto;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    /* LOGO */
+
+    .logo-container {
+        width: 120px;
+        height: 80px;
+
+        margin: 0;
+    }
+
+
+    /* NAVIGATION */
+
+    .navbar nav {
+        width: 100%;
+
+        height: auto;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .navbar nav a {
+        height: 50px;
+
+        padding: 0 12px;
+
+        font-size: 11px;
+    }
+
+    .navbar nav a[href="register.html"] {
+        border-left: none;
+    }
+
+
+    /* MAIN */
+
+    .main-content {
+        margin-top: 150px;
+    }
+
+    .main-content h1 {
+        font-size: 50px;
+    }
+
+    .main-text {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .main-text::before,
+    .main-text::after {
+        width: 25px;
+
+        margin: 0 8px;
+    }
+
+    .main-content p:last-of-type {
+        font-size: 16px;
+    }
+
+    .button {
+        min-width: 250px;
+
+        padding: 16px 30px;
+
+        font-size: 11px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 35px 15px 30px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+
+        letter-spacing: 5px;
+    }
+
+    .footer p {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .main-content h1 {
+        font-size: 40px;
+    }
+
+    .main-text {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .main-content p:last-of-type {
+        font-size: 14px;
+    }
+
+    .button {
+        min-width: 230px;
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+}

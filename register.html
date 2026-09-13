@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Contract</title>
+    <link rel="stylesheet" href="register_lore.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Mockingbird Logo">
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="lore.html">FACTION LORE</a>
+            <a href="characters.html">CHARACTERS</a>
+            <a href="register.html" class="active">REGISTER</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <center>
+            <div class="page-title-box">
+                <h1>Initiate Heist Contract</h1>
+            </div>
+        </center>
+
+        <section class="form-section">
+            <article class="content-card form-card">
+                <form id="heistForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="alias">Client Code / Alias</label>
+                        <input type="text" id="alias" name="alias" placeholder="e.g. Phaethon" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Comms Channel (Email)</label>
+                        <input type="email" id="contact" name="contact" placeholder="proxy@interknot.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contract-type">Commission Type</label>
+                        <select id="contract-type" name="contract-type">
+                            <option value="intel">Intel Interception</option>
+                            <option value="hollow">Hollow Item Retrieval</option>
+                            <option value="target">Target Extraction</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Target Details & Message</label>
+                        <textarea id="details" name="details" rows="5" placeholder="Specify location, target entity, and offer details..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn">SEND ENCRYPTED SIGNAL</button>
+                </form>
+
+                <!-- Interactive Terminal Feedback Box -->
+                <div id="statusOutput" style="display:none; margin-top:20px; padding:12px; background:#000; border:1px solid #F5F0E6; color:#cdc8cf; font-family:monospace; font-size:13px;">
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo secret-trigger" onclick="toggleEasterEgg()" title="Click to decrypt secret">
+            MOCKINGBIRD
+        </div>
+        <p>
+            @ 2026 All rights reserved | Group 7 - Team Blue
+        </p>
+
+        <!-- Interactive Bonus Challenge Easter Egg -->
+        <div id="secret-badge" class="easter-egg-badge">
+            🔓 ENCRYPTED SIGNAL DECODED: <span style="color:#F5F0E6;">Phaethon's no#1 fan</span>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            var btn = document.getElementById('submitBtn');
+            var output = document.getElementById('statusOutput');
+            
+            btn.innerText = "TRANSMITTING...";
+            btn.style.opacity = "0.7";
+            
+            setTimeout(function() {
+                btn.innerText = "SIGNAL TRANSMITTED";
+                btn.style.background = "#2a4d2a";
+                btn.style.borderColor = "#4caf50";
+                
+                output.style.display = "block";
+                output.innerHTML = "> TRANSMISSION SUCCESSFUL.<br>> Signal routed to Mockingbird operatives.<br>> Expect encrypted response via Inter-Knot channel.";
+            }, 1200);
+        }
+
+        function toggleEasterEgg() {
+            var badge = document.getElementById('secret-badge');
+            if (badge.style.display === 'block') {
+                badge.style.display = 'none';
+            } else {
+                badge.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
